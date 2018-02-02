@@ -18,16 +18,25 @@
 
     <div class="container">
 
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Sign in</h2>
-        <label for="inputEmail" class="sr-only">Username</label>
-        <input type="text" id="inputUsername" class="form-control" placeholder="Username"/>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password"/>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">
-        	<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Sign in
-        </button>
-      </form>
+      <div clas="row">
+      	<div class="col-md-4">
+      		<form method="POST" class="form-signin" action="#" th:action="@{/auth}" th:object="${userCredential}">
+		        <h2 class="form-signin-heading">Sign in</h2>
+		        <label for="inputEmail" class="sr-only">Username</label>
+		        <input th:field="*{username}" type="text" id="inputUsername" class="form-control" placeholder="Username"/>
+		        <label for="inputPassword" class="sr-only">Password</label>
+		        <input th:field="*{password}" type="password" id="inputPassword" class="form-control" placeholder="Password"/>
+		        
+		        <div th:if="${error} != 'null' " class="alert alert-danger" role="alert">
+		        	Usuario o clave incorrecto
+		        </div>
+		        
+		        <button class="btn btn-lg btn-primary btn-block" type="submit">
+		        	<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Sign in
+		        </button>
+	      	</form>	
+      	</div>
+      </div>
 
     </div> <!-- /container -->
 
