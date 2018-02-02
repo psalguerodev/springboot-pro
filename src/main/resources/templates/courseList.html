@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Lista de Cursos</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous" />
+</head>
+<body>
+	<!-- Listado -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<h3 class="text-primary">Listado de Cursos</h3>
+
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Curso</th>
+							<th>Descripción</th>
+							<th>Precio</th>
+							<th>Horas</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Angular 5</td>
+							<td>Curso Avanzado de Angular 5</td>
+							<td>433</td>
+							<td>34 hrs.</td>
+						</tr>
+						<tr th:each="c : ${courses}">
+							<td th:text="${c.name}"></td>
+							<td th:text="${c.description}"></td>
+							<td th:text="${c.price}"></td>
+							<td th:text="${c.hours} + 'hrs.' "></td>
+						</tr>
+					</tbody>
+
+				</table>
+			</div>
+			<div class="col-md-6">
+				<h3>Formulario</h3>
+				<form action="#" class="form-horizontal" th:action="@{/course/add}"
+					method="POST" th:object="${course}">
+					<div class="form-group">
+						<label>Nombre</label> 
+						<input th:field="*{name}" type="text" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label>Descripción</label>
+						<textarea class="form-control" th:field="*{description}" rows="3" cols="20"></textarea>
+					</div>
+					<div class="form-group">
+						<label>Precio</label> 
+						<input th:field="*{price}" type="number" class="form-control" />
+					</div>
+					<div class="form-group">
+						<label>Horas</label> 
+						<input th:field="*{hours}" type="number" class="form-control" />
+					</div>
+
+					<button type="submit" class="btn btn-primary">[Procesar]</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
