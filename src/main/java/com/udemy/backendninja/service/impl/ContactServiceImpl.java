@@ -1,5 +1,6 @@
 package com.udemy.backendninja.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,13 @@ public class ContactServiceImpl implements ContactService{
 	
 	@Override
 	public List<ContactModel> listContacts() {
-		return null;
+		List<ContactModel> lcm = new ArrayList<ContactModel>(1);
+		
+		this.contactRepository.findAll().stream().forEach( c -> {
+			lcm.add( this.contactConverter.entityToModel(c) );
+		});
+		
+		return lcm;
 	}
 	
 }

@@ -57,7 +57,7 @@ public class ContactController {
 			model.addAttribute("result", 0);
 			LOG.error("Error! Contact Not Add");
 		}
-
+		model.addAttribute("contacts", this.contactService.listContacts() );
 		return ViewsConstants.vcontact;
 	}
 
