@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.udemy.backendninja.constants.ViewsConstants;
 import com.udemy.backendninja.model.ContactModel;
@@ -61,4 +62,9 @@ public class ContactController {
 		return ViewsConstants.vcontact;
 	}
 
+	@GetMapping("/delete")
+	public String deleteContact( @RequestParam(name="code", required=true) int code ) {
+		this.contactService.removeContact(code);
+		return "redirect:/contact/list";
+	}
 }

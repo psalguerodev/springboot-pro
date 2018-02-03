@@ -41,5 +41,19 @@ public class ContactServiceImpl implements ContactService{
 		
 		return lcm;
 	}
+
+	@Override
+	public Contact findByCode(int code) {
+		return this.contactRepository.findByCode(code);
+	}
+
+	@Override
+	public void removeContact(int code) {
+		Contact c = this.findByCode(code);
+		if( null != c ) {
+			this.contactRepository.delete(c);
+		}
+	}
+	
 	
 }
