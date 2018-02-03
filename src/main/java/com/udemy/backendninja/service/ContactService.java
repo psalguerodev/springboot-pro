@@ -14,4 +14,6 @@ public interface ContactService {
 	public abstract Contact findByCode( int code );
 	
 	public abstract void removeContact( int code);
+	
+	public abstract ContactModel findModelByCode( int code );
 }

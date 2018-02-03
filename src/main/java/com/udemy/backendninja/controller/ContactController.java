@@ -39,9 +39,18 @@ public class ContactController {
 	}
 
 	@GetMapping("/form")
-	public String showFormContact(Model model) {
+	public String showFormContact( @RequestParam(name="code" , defaultValue="", required=false) int code ,
+			Model model) {
+		ContactModel cm = new ContactModel();
+		if( code != 0 ) {
+			cm = this.contactService.findModelByCode(code);
+			if( cm == null ) cm = new ContactModel();
+		}
+		
 		LOG.info("Call showFormContact(Model model)");
-		model.addAttribute("contactModel", new ContactModel());
+		LOG.info("Result: " + cm.toString() );
+		
+		model.addAttribute("contactModel", cm );
 		return ViewsConstants.vcontactForm;
 	}
 

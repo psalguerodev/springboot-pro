@@ -20,6 +20,7 @@
 			<h1>Contact Form</h1>
 			<br/>
 			<form method="POST" action="#" th:action="@{/contact/add}" th:object="${contactModel}">
+				<input type="hidden" th:field="*{code}" ></input>
 				First Name: <input th:field="*{firstname}" type="text" class="form-control"></input>
 				<br/>
 				Last Name: <input th:field="*{lastname}" type="text" class="form-control"></input>

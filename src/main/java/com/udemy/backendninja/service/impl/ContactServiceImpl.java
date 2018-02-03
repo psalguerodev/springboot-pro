@@ -46,6 +46,11 @@ public class ContactServiceImpl implements ContactService{
 	public Contact findByCode(int code) {
 		return this.contactRepository.findByCode(code);
 	}
+	
+	@Override
+	public ContactModel findModelByCode(int code) {
+		return this.contactConverter.entityToModel(this.findByCode(code));
+	}
 
 	@Override
 	public void removeContact(int code) {
