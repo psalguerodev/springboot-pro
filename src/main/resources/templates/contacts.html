@@ -76,6 +76,10 @@
 			Register contact successfull!
 		</div>
 		
+		<div class="alert alert-success" role="role" th:if="${result == 0}">
+			Error! Not add contact!
+		</div>
+		
 		<a href="#" th:href="@{/contact/form}">
 			<button class="btn btn-lg btn-primary btn-block" type="submit"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Add contact</button>
 		</a>

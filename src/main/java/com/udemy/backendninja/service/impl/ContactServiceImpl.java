@@ -1,0 +1,38 @@
+package com.udemy.backendninja.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import com.udemy.backendninja.converter.ContactConverter;
+import com.udemy.backendninja.entity.Contact;
+import com.udemy.backendninja.model.ContactModel;
+import com.udemy.backendninja.repository.ContactRepository;
+import com.udemy.backendninja.service.ContactService;
+
+
+@Service("contactSeviceImpl")
+public class ContactServiceImpl implements ContactService{
+
+	@Autowired
+	@Qualifier("contactRepository")
+	private ContactRepository contactRepository;
+	
+	@Autowired
+	@Qualifier("contactConverter")
+	private ContactConverter contactConverter;
+	
+	@Override
+	public ContactModel addContact(ContactModel contactModel) {
+		Contact c = this.contactRepository.save(this.contactConverter.modelToEntity(contactModel));
+		return this.contactConverter.entityToModel(c);
+	}
+	
+	@Override
+	public List<ContactModel> listContacts() {
+		return null;
+	}
+	
+}
