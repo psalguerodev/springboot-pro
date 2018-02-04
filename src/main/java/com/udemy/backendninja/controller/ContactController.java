@@ -106,6 +106,10 @@ public class ContactController {
 			model.addAttribute("result", 0);
 			LOG.error("Error! Contact Not Add");
 		}
+		org.springframework.security.core.userdetails.User user = 
+				(org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext()
+																	.getAuthentication().getPrincipal();
+		model.addAttribute("username", user.getUsername());
 		model.addAttribute("contacts", this.contactService.listContacts() );
 		return ViewsConstants.vcontact;
 	}
