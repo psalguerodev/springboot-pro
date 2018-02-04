@@ -19,9 +19,9 @@
     <div class="container">
 
       <div clas="row">
-      	<div class="col-md-4">
+      	<div class="col-md-12">
       		<form method="POST" class="form-signin" th:action="@{/logincheck}" >
-		        <h2 class="form-signin-heading">Sign in</h2>
+		        <h2 class="form-signin-heading text-danger" >Sign in BackendNinjaPro</h2>
 		        <input type="hidden" name="${_crsf.parameterName}" value="${_crsf.token}" />
 		        <label for="inputEmail" class="sr-only">Username</label>
 		        <input name="username" id="username" type="text" class="form-control" placeholder="Username"/>

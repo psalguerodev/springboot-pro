@@ -8,7 +8,10 @@ spring:
     url: jdbc:mysql://localhost:3306/backendpro?useSSL=false
     username: root
     password: 
-    
+  
+  thymeleaf:
+    cache: false
+  
   #JPA CONFIG
   jpa:
     show-sql: true
