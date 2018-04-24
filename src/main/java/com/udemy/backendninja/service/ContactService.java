@@ -13,7 +13,6 @@ public interface ContactService {
 
 	/**
 	 * Adds the contact.
-	 *
 	 * @param contactModel the contact model
 	 * @return the contact model
 	 */
