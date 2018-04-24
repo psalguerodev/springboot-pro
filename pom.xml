@@ -64,6 +64,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<version>1.3.0.RELEASE</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -96,7 +103,7 @@
 				</dependencies>
 			</plugin>
 
-			<!--  Permite hacer cambios en caliente -->
+			<!-- Permite hacer cambios en caliente -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

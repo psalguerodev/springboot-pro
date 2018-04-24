@@ -7,7 +7,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/backendpro?useSSL=false
     username: root
-    password: 
+    password: psalguero
   
   thymeleaf:
     cache: false
